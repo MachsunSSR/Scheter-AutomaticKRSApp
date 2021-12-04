@@ -1,10 +1,13 @@
 import React from 'react';
+import Navbar from '../../components/Navbar/Navbar';
+import Container from '../../layout/Container';
 
 const JadwalPages = () => {
 	return (
-		<div>
-			<div>Halaman Jadwal</div>
-		</div>
+		<>
+			<Navbar jadwal />
+			<Container></Container>
+		</>
 	);
 };
 
