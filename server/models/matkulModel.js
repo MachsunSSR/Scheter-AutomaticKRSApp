@@ -20,7 +20,10 @@ const Matkul = db.define('matkul', {
         type: DataTypes.STRING
     },
     hari: {
-        type: DataTypes.STRING
+        type: DataTypes.JSON
+    },
+    jam: {
+        type: DataTypes.JSON
     }
 }, {
     freezeTableName: true,
