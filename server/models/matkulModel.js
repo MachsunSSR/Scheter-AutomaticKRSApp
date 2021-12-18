@@ -1,11 +1,14 @@
 import { Sequelize } from "sequelize";
 import db from "../config/database.js"
+import Jadwal from "./jadwalModel.js";
 
 const {DataTypes} = Sequelize
 
 const Matkul = db.define('matkul', {
-    idMatkul: {
-        type: DataTypes.INTEGER
+    id_matkul: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
     nama: {
         type: DataTypes.STRING
@@ -17,9 +20,15 @@ const Matkul = db.define('matkul', {
         type: DataTypes.STRING
     },
     sks: {
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER
+    },
+    kuota: {
+        type: DataTypes.INTEGER
     },
     hari: {
+        type: DataTypes.STRING
+    },
+    jam: {
         type: DataTypes.STRING
     }
 }, {

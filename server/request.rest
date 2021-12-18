@@ -1,0 +1,41 @@
+GET http://localhost:5000/matkul
+
+###
+GET http://localhost:5000/mahasiswa
+
+###
+GET http://localhost:5000/admin
+
+###
+GET http://localhost:5000/jadwal
+
+### 
+POST http://localhost:5000/matkul 
+Content-Type: application/json
+
+{
+    "idMatkul": 1, 
+    "nama": "Rekayasa Perangkat Lunak", 
+    "kelas": "A", "kode": "599A6", 
+    "sks": "3", 
+    "hari": ["Senin", "Kamis"], 
+    "jam": ["14.30 - 16.49", "13.00 - 14.30"]
+}
+
+### 
+PATCH http://localhost:5000/matkul/1 
+Content-Type: application/json
+
+{
+    "idMatkul": 1, 
+    "nama": "Rekayasa Perangkat Lunak", 
+    "kelas": "A", 
+    "kode": "599A6", 
+    "sks": "3", 
+    "hari": ["Senin", "Kamis"], 
+    "jam": ["14.30 - 16.49", "13.00 - 14.30"]
+}
+
+### 
+DELETE http://localhost:5000/matkul/1
+
