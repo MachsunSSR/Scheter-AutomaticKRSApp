@@ -1,28 +1,6 @@
 import model from "../models/index.js"
 import { Op } from "sequelize"
 
-export const getAllJadwal = async (req, res) => {
-    try {
-        const jadwal = await model.Jadwal.findAll()
-        res.json(jadwal)
-    } catch (error) {
-        res.json({message: error.message})
-    }
-}
-
-export const getJadwalById = async (req, res) => {
-    try {
-        const jadwal = await model.Jadwal.findAll({
-            where: {
-                id: req.params.id
-            }
-        })
-        res.json(jadwal[0])
-    } catch (error) {
-        res.json({message: error.message})
-    }
-}
-
 export const createJadwal = async (req, res) => {
     try {
         //ubah list berkoma menjadi list asli 
@@ -83,9 +61,9 @@ export const updateJadwal = async (req, res) => {
 }
 
 export const deleteJadwal = async (req, res) => {
-    console.log("test")
+    
     try {
-        console.log(req.body)
+        
         await model.Jadwal.destroy({
             where: {
                 id_jadwal: req.body.id_jadwal,
@@ -95,6 +73,62 @@ export const deleteJadwal = async (req, res) => {
         res.json({
             "message": "Berhasil menghapus Jadwal",
         })
+    } catch (error) {
+        res.json({message: error.message})
+    }
+}
+
+
+export const tambahJadwalUtama = async (req, res) => {
+    try {
+        //ubah id matkul menjadi array
+        const list_id_matkul = req.body.listIdMatkul.split(",")
+
+        //ambil semua matkul
+        const matkuls = await model.Matkul.findAll({
+            where: {
+                id_matkul:{
+                    [Op.or]: list_id_matkul
+                }
+            }
+        })
+
+        //ambil mahasiswa
+        const mahasiswa = await model.Mahasiswa.findOne({
+            where:{
+                nim: req.body.nim
+            }
+        })
+
+        //tambahkan matkul
+        
+        mahasiswa.setJadwal_utama(matkuls)
+
+        res.json({
+            message: "Berhasil mengubah jadwal utama"
+        })
+
+    } catch (error) {
+        res.json({message: error.message})
+    }
+}
+
+export const hapusJadwalUtama = async (req, res) => {
+    try {
+        //ambil mahasiswa
+        const mahasiswa = await model.Mahasiswa.findOne({
+            where:{
+                nim: req.body.nim
+            }
+        })
+
+        //hapus matkul
+        mahasiswa.setJadwal_utama(null)
+
+        res.json({
+            message: "Berhasil menghapus jadwal utama"
+        })
+
     } catch (error) {
         res.json({message: error.message})
     }
