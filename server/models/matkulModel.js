@@ -26,7 +26,7 @@ const Matkul = db.define('matkul', {
         type: DataTypes.INTEGER
     },
     hari: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING
     },
     jam: {
         type: DataTypes.STRING

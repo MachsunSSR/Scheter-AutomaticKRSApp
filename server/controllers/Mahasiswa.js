@@ -1,6 +1,15 @@
 import { Op } from "sequelize"
 import model from "../models/index.js"
 
+export const login = async (req, res) => {
+    try {
+        const mahasiswa = await Mahasiswa.findAll()
+        res.json(mahasiswa)
+    } catch (error) {
+        res.json({message: error.message})
+    }
+}
+
 export const getAllMahasiswa = async (req, res) => {
     try {
         const mahasiswa = await model.Mahasiswa.findAll()

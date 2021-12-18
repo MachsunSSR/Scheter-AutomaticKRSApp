@@ -26,7 +26,7 @@ const CreateJadwal = () => {
 								<img src={edit} alt="" className="absolute right-0 w-10 h-10" />
 							</div>
 							<div className="flex justify-between">
-								<div className="bg-white w-1/3 m-8 rounded-xl p-4">
+								{/* <div className="bg-white w-1/3 m-8 rounded-xl p-4">
 									<div
 										className="text-center font-semibold pb-4"
 										style={{ fontSize: '28px' }}
@@ -70,12 +70,12 @@ const CreateJadwal = () => {
 									<div className="p-4">
 										<div
 											className="text-center font-semibold pb-4"
-											style={{ fontSize: '28px' }}
+											style={{ fontSize: '28px', height: '' }}
 										>
 											Daftar Mata Kuliah
 										</div>
 									</div>
-								</div>
+								</div> */}
 							</div>
 						</form>
 					</div>
