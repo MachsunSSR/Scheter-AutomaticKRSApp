@@ -13,7 +13,7 @@ export const getMatkulById = async (req, res) => {
     try {
         const matkul = await Matkul.findAll({
             where: {
-                id: req.params.id
+                id_matkul: req.params.id
             }
         })
         res.json(matkul[0])
@@ -25,6 +25,7 @@ export const getMatkulById = async (req, res) => {
 export const createMatkul = async (req, res) => {
     try {
         await Matkul.create(req.body)
+        console.log(req.body)
         res.json({
             "message": "Berhasil membuat matkul",
         })
@@ -37,7 +38,7 @@ export const updateMatkul = async (req, res) => {
     try {
         await Matkul.update(req.body, {
             where: {
-                id: req.params.id
+                id_matkul: req.body.id
             }
         })
         res.json({
@@ -52,9 +53,10 @@ export const deleteMatkul = async (req, res) => {
     try {
         await Matkul.destroy({
             where: {
-                id: req.params.id
+                id_matkul: req.body.id
             }
         })
+        // console.log(req.body.id)
         res.json({
             "message": "Berhasil menghapus matkul",
         })

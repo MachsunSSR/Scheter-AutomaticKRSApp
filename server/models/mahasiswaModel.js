@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 import db from "../config/database.js"
+import Jadwal from "./jadwalModel.js";
 
 const {DataTypes} = Sequelize
 
@@ -14,18 +15,10 @@ const Mahasiswa = db.define('mahasiswa', {
     password:{
         type: DataTypes.STRING
     },
-    matkul: {
-        type: DataTypes.STRING
-    },
-    jadwal_favorit: {
-        type: DataTypes.STRING
-    },
-    jadwal_utama: {
-        type: DataTypes.INTEGER
-    },
 }, {
     freezeTableName: true,
     timestamps: false,
 })
+
 
 export default Mahasiswa

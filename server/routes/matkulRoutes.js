@@ -1,5 +1,4 @@
 import express from "express";
-
 import { getAllMatkul, getMatkulById, createMatkul, updateMatkul, deleteMatkul } from "../controllers/Matkul.js";
 
 const router = express.Router()
@@ -8,7 +7,7 @@ const router = express.Router()
 router.get("/", getAllMatkul)
 router.get("/:id", getMatkulById)
 router.post("/", createMatkul)
-router.patch("/:id", updateMatkul)
-router.delete("/:id", deleteMatkul)
+router.patch("/", updateMatkul)
+router.delete("/", deleteMatkul)
 
 export default router
